@@ -1,0 +1,134 @@
+html {
+  background-color: #ededed;
+}
+
+div.todo {
+  background-color: white;
+  width: 55%;
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 4rem;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(182, 182, 182);
+}
+
+.todo__title {
+  text-align: center;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+.todo__input {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.todo__input-text {
+  border: 1px solid #bbbbbb;
+  flex: 1; /* 讓 input 自動撐寬剩下空間 */
+  padding: 0.75rem 1rem; /* 加大內距 */
+  border-radius: 8px; /* 更圓滑 */
+  font-size: 1.1rem;
+}
+
+.todo__input-btn {
+  border: none;
+  background-color: #4f4f4f;
+  color: white;
+  font-size: 1.3rem;
+  width: 15%;
+  border-radius: 5px;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+/* 多餘的建議移除 */
+/* .todo__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.todo__list {
+  width: 100%;
+  padding: 0%;
+}
+
+.todo__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  font-size: 1.2rem;
+  border-bottom: 0.5px solid #8e8e8e;
+}
+
+.todo__text--done {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo__checkbox {
+  display: none; /* ✅ 隱藏原生 checkbox */
+}
+
+.todo__checkbox-custom {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1.2px solid #bbbbbb;
+  border-radius: 8px; /* ✅ 這裡可以控制圓角程度 */
+  display: inline-block;
+  position: relative;
+  cursor: pointer; /* 讓滑鼠變手指 */
+  transition: all 0.2s ease-in-out;
+}
+
+.todo__checkbox-custom:hover {
+  border-color: #4f4f4f;
+}
+
+.todo__checkbox:checked + .todo__checkbox-custom {
+  background-color: #4f4f4f;
+  border-color: #4f4f4f;
+}
+
+.todo__checkbox:checked + .todo__checkbox-custom::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 2px;
+  width: 7px;
+  height: 13px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* .todo__checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #4f4f4f; /* ✔️勾選時的顏色（現代瀏覽器支援） */
+/* cursor: pointer; 讓滑鼠變手指
+} */
+
+.todo__item-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.todo__item-delete {
+  background-color: white;
+  border: none;
+  border-radius: 2000px;
+  width: 2rem;
+  height: 2rem;
+}
+
+.todo__item-delete:hover {
+  background-color: #ededed;
+}

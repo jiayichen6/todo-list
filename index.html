@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoList</title>
+    <link rel="stylesheet" href="./src/index.css" />
+    <script type="module" src="./src/alpine.js"></script>
+  </head>
+  <body>
+    <div class="todo__section" x-data="updateList()">
+      <h1 class="todo__title">ToDoList</h1>
+      <div class="todo__input-wrapper">
+        <input
+          x-model="newText"
+          @keyup.enter="addItem"
+          x-init="$nextTick($el.focus())"
+          class="todo__input-text"
+          type="text"
+          name="todo-input"
+          placeholder="請輸入待辦事項"
+        />
+        <button @click="addItem" class="todo__add-btn">Add</button>
+      </div>
+      <ul class="todo__list">
+        <template x-for="(item) in list" :key="item.id">
+          <li class="todo__item">
+            <div class="todo__list-check">
+              <label class="todo__item-label">
+                <input
+                  @change="completedItem(item)"
+                  class="todo__checkbox"
+                  type="checkbox"
+                  name="item--editing"
+                />
+                <span class="todo__checkbox-custom"></span>
+              </label>
+
+              <template x-if="editingItem !== item.id">
+                <span
+                  x-text="item.text"
+                  @click="if(item.completed === false){editingItem = item.id}"
+                  :class="item.completed?'todo__item--done':'todo__content'"
+                ></span>
+              </template>
+              <template
+                x-if="editingItem === item.id && item.completed === false"
+              >
+                <input
+                  x-model="item.text"
+                  x-init="$nextTick($el.focus())"
+                  @keyup.enter="editingItem = null"
+                  type="text"
+                  class="todo__content--update"
+                />
+              </template>
+            </div>
+            <button @click="deleteItem(item.id)" class="todo__btn-delete">
+              X
+            </button>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </body>
+</html>
