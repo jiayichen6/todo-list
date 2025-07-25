@@ -14,8 +14,12 @@ A simple and clean todo list app built with HTML, CSS, and JavaScript.
 - Alpine.js
 - Git & GitHub
 
-## Getting Started
 
+## Getting Started
 ```bash
 npm install
 npm run dev
+```
+
+## Development Tools
+- Vite for development server
