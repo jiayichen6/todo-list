@@ -1,3 +1,5 @@
+![Preview of Todo List App](./preview.png)
+
 # Todo List
 
 A simple and clean todo list app built with HTML, CSS, and JavaScript.
